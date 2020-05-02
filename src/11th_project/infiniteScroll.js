@@ -14,7 +14,6 @@ async function getPosts() {
 }
 
 // Show posts in DOM 
-
 async function showPosts() {
     const posts = await getPosts();
 
@@ -49,7 +48,6 @@ function showLoading() {
 }
 
 //Filter Posts by input
-
 function filterPosts(e) {
     const term = e.target.value.toUpperCase();
     const posts = document.querySelectorAll(".post");
