@@ -19,7 +19,6 @@ function onSpeak(e) {
     const msg = e.results[0][0].transcript;
     writeMessage(msg);
     checkNumber(msg);
-
 }
 
 // Generate a random number
@@ -59,8 +58,10 @@ function checkNumber(msg) {
             It was ${num}</h2>
             <button class="play-again" id="play-again">Play Again</button>
         `;
+
     } else if (num > randomNum) {
         msgEl.innerHTML += '<div>GO LOWER</div>';
+
     } else {
         msgEl.innerHTML += '<div>GO HIGHER</div>';
     }
