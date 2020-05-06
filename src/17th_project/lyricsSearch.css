@@ -78,6 +78,15 @@
     font-size: 16px;
     padding: 13px 30px;
   }
+
+  .voice-btn{
+    position: absolute;
+    top: 182px;
+    right: 220px;
+    background-color: transparent;
+    border: none;
+    transform: scale(1.6);
+  }
   
   .btn {
     background-color: #8d56fd;

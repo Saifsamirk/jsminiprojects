@@ -2,8 +2,36 @@ const form = document.getElementById('form');
 const search = document.getElementById('search');
 const result = document.getElementById('result');
 const more = document.getElementById('more');
+const voice = document.getElementById('voice');
 
 const apiURL = 'https://api.lyrics.ovh';
+
+// Initialze the speech recognition service
+window.SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+let recognition = new window.SpeechRecognition();
+
+// Start recognition and game
+// recognition.start();
+
+// start the voice recognition 
+// function init() {
+//     onSpeak();
+// }
+
+// Capture user speak
+function onSpeak(e) {
+
+    const msg = e.results[0][0].transcript;
+
+    search.value = msg;
+    searchSongs(msg)
+
+    return msg;
+};
+
 
 // Search by song or artist
 async function searchSongs(term) {
@@ -91,3 +119,8 @@ result.addEventListener('click', e => {
         getLyrics(artist, songTitle);
     }
 });
+
+// Speak result 
+recognition.addEventListener('result', onSpeak);
+voice.addEventListener('click', () => recognition.start());
+
